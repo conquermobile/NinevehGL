@@ -661,7 +661,8 @@ static void emptyCoreMesh(id <NGLCoreMesh> coreMesh)
 	{
         // AH: Really need a language upgrade to use ARC and weak references
         // to deal with potentially deallocated threads on async main dispatch.
-        __weak NGLMesh *weakSelf = self;
+//        __weak NGLMesh *weakSelf = self;
+        NGLMesh* weakSelf = self;
 		dispatch_async(dispatch_get_main_queue(), ^(void)
 		{
             NGLMesh *safeSelf = weakSelf;
